@@ -8,12 +8,14 @@
 <script setup>
 import { ref } from "vue";
 import { Configuration, OpenAIApi } from "openai";
+import dotenv from 'dotenv'
+
+dotenv.config()
 const input = ref([]);
-const output = ref([]);
-const emits = defineEmits(["response"]);
+const emits = defineEmits(["result"]);
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: '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',
 });
 const openai = new OpenAIApi(configuration);
 
@@ -21,10 +23,10 @@ const onSubmit = async () => {
   const prompt = input.value;
   const response = await openai.createCompletion("text-davinci-001", {
     prompt: prompt,
-    max_tokens: 500,
+    max_tokens: 700,
   });
-  output.value = response.data.choices[0].text;
-  emits("output", output.value);
+  const result = response.data.choices[0].text;
+  emits("result", result);
 };
 </script>
 

@@ -1,9 +1,9 @@
 <template>
   <div class="content">
     <h1>Storytelling By GPT-3 Powered By OpenAI API</h1>
-    <h3>"Tell me how it starts and i will tell u how it end" - GPT-3</h3>
+    <h3>"Tell me how it starts and i will tell u how it ends" - GPT-3</h3>
     <div class="view">
-      <GP3 @output="getOutput"/>
+      <GP3 @result="getResult"/>
       <div class="output-view">{{textOut}}</div>
     </div>
   </div>
@@ -13,8 +13,8 @@
 import GP3 from "./components/GP3.vue";
 import { ref } from "vue";
 
-let textOut= ref();
-const getOutput = (data) => {
+let textOut= ref(null);
+const getResult = (data) => {
   textOut.value = data;
 };
 </script>

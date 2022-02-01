@@ -4,10 +4,6 @@ module.exports = {
     defineProps: "readonly",
     defineEmits: "readonly",
   },
-  env: {
-    // "vue/setup-compiler-macros": true,
-    node: true,
-  },
   extends: ["plugin:vue/vue3-essential", "eslint:recommended"],
   parserOptions: {
     parser: "babel-eslint",
